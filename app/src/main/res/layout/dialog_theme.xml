@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/alert_location_details"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/material_tiet_city_name"
+        android:inputType="text|textNoSuggestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif"
+        android:hint="city name"
+        android:maxLength="25"
+        android:textColor="@color/colorWhite"
+        android:textColorHint="@color/colorWhite"
+        android:background="@drawable/dialog_corner_rounded"/>
+</LinearLayout>

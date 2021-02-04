@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">WeatherPusher</string>
+    <string name="button_weather_pull">Data</string>
+    <string name="button_weather_pull_hint">press to push personalized weather updates to your calendar</string>
+    <string name="button_google_sign_in">Calendar Authenticate</string>
+    <string name="button_google_sign_in_hint">press to sign in to your google calendar</string>
+    <string name="button_calendar_push">Set Calendar Settings</string>
+    <string name="button_calendar_hint">press to set settings for your google calendar events</string>
+    <string name="edittext_city">tap to enter your city</string>
+    <string name="city">City</string>
+    <string name="mtv_city_state_zip">City, State, Zip.</string>
+    <string name="mtv_gmail_username">Gmail Username</string>
+    <string name="mtv_current_location">Current Location.</string>
+    <string name="mtv_cache_location">Toggle to cache your location.</string>
+    <string name="mtv_cache_gmail_username">Toggle to cache your gmail username.</string>
+    <string name="mtv_account_authenticate">Toggle to authenticate your account.</string>
+    <string name="mtv_select_city">Toggle to select your desired city.</string>
+    <string name="mtv_pull_data_city">Toggle to pull the data for your city.</string>
+    <string name="mtv_min_temp">Minimum Temperature.</string>
+    <string name="mtv_max_temp">Maximum Temperature.</string>
+    <string name="mtv_confirm_update">Toggle to confirm your update.</string>
+    <string name="menu_item_account">Account</string>
+    <string name="menu_item_settings">Settings</string>
+</resources>

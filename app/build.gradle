@@ -1,0 +1,135 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+def localProperties = new Properties()
+localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    defaultConfig {
+        applicationId "weather.pusher"
+        minSdkVersion 24
+        targetSdkVersion 29
+        versionCode 8
+        versionName "8"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "OWM_API_KEY", localProperties['OwmApiKey']
+        buildConfigField "String", "OWM_OAUTH_API_TOKEN", localProperties['OauthApiToken']
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
+    /* experimental features for kotlin */
+    androidExtensions {
+        experimental = true
+    }
+    /* bind the application data to the layouts in a concise way */
+    dataBinding {
+        enabled = true
+    }
+    lintOptions {
+        abortOnError false
+    }
+    testOptions {
+        unitTests {
+            all {
+                maxHeapSize = "1024m"
+            }
+        }
+    }
+}
+
+dependencies {
+    /* System libraries for AndroidX */
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    /* Koin for AndroidX */
+    def koin_version = "2.1.0-alpha-10"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+
+    /* ViewModel for AndroidX */
+    def lifecycle_version = "2.2.0"
+    def savedstate_version = "1.0.0"
+    def arch_version = "2.1.0"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:$savedstate_version"
+    testImplementation "androidx.arch.core:core-testing:$arch_version"
+
+    /* Kotlin data binging for AndroidX */
+    kapt 'com.android.databinding:compiler:3.5.3'
+
+    /* Core libraries for AndroidX  */
+    implementation 'androidx.core:core-ktx:1.2.0'
+
+    /* Support libraries for AndroidX */
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+
+    /* ThreeTen for AndroidX */
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.2'
+
+    /* Google Material Design for AndroidX */
+    implementation 'com.google.android.material:material:1.2.0-alpha04'
+
+    /* Google Gson for AndroidX*/
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    /* Google Oath for AndroidX */
+    implementation 'com.google.oauth-client:google-oauth-client-jetty:1.30.5'
+
+    /* Google Calendar for AndroidX */
+    implementation 'com.google.apis:google-api-services-calendar:v3-rev99-1.19.0'
+
+    /* Google Api for AndroidX */
+    implementation 'com.google.api-client:google-api-client:1.30.7'
+    implementation 'com.google.api-client:google-api-client-android:1.30.7'
+
+    /* Gson Serializer for AndroidX */
+    implementation "com.squareup.retrofit2:converter-gson:2.6.2"
+
+    /* Gson for AndroidX */
+    implementation 'com.google.code.gson:gson:2.8.6'
+
+    /* Retrofit2 for AndroidX */
+    implementation "com.squareup.retrofit2:retrofit:2.7.0"
+    implementation "com.squareup.retrofit2:converter-moshi:2.7.0"
+
+    /* Okhttp3 for AndroidX */
+    implementation "com.squareup.okhttp3:okhttp:4.3.1"
+    implementation "com.squareup.okhttp3:logging-interceptor:3.14.4"
+
+    /* Espresso for AndroidX */
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    /* JUnit for AndroidX */
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+}

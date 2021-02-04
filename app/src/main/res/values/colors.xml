@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorPrimary">#7770D8</color>
+    <color name="colorPrimaryDark">#658191</color>
+    <color name="colorPrimaryVariant">#55509B</color>
+    <color name="colorSecondary">#7C9EB2</color>
+    <color name="colorSecondaryDark">#658191</color>
+    <color name="colorSecondaryVariant">#658191</color>
+    <color name="colorBackground">#FFFFFF</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorError">#ED1D24</color>
+    <color name="colorOnPrimary">#FFFFFF</color>
+    <color name="colorOnSecondary">#FFFFFF</color>
+    <color name="colorOnBackground">#FFFFFF</color>
+    <color name="colorOnSurface">#FFFFFF</color>
+    <color name="colorOnError">#ED1D24</color>
+
+    <color name="colorButtonCalendarPushEnabled">#EAEAEA</color>
+    <color name="colorButtonCalendarPushDisabled">#D3D3D3</color>
+    <color name="colorButtonGoogleAuthorizeEnabled">#7770D8</color>
+    <color name="colorButtonGoogleAuthorizeDisabled">#55509B</color>
+    <color name="colorEditTextCityEnabled">#7C9EB2</color>
+    <color name="colorEditTextCityDisabled">#658191</color>
+    <color name="colorButtonWeatherPushEnabled">#7C9EB2</color>
+    <color name="colorButtonWeatherPushDisabled">#658191</color>
+    <color name="colorLayoutWeatherPusher">#EAEAEA</color>
+    <color name="colorLayoutSettings">#EAEAEA</color>
+    <color name="colorGhostWhite">#F0F0F0</color>
+    <color name="colorGhostDark">#7770D8</color>
+    <color name="colorGhostCleat">#7C9EB2</color>
+
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#FFFFFF</color>
+</resources>

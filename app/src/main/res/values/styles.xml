@@ -1,0 +1,55 @@
+<resources>
+    <!-- Application Theme -->
+    <style name="AppMaterialTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <!-- CustomButton Theme -->
+    <style name="MaterialTheme.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+    <!-- CustomTextView Theme -->
+    <style name="MaterialTheme.TextView" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/colorWhite</item>
+    </style>
+    <!-- CustomBottomNavigation Theme -->
+    <style name="MaterialTheme.MtrlBtmNav" parent="Widget.MaterialComponents.BottomNavigationView">
+        <!-- use the following selectors to change the icon themes -->
+        <item name="itemIconTint">@color/colorPrimaryDark</item>
+        <item name="itemTextColor">@color/colorPrimaryDark</item>
+    </style>
+    <!-- LinearLayout Theme -->
+    <style name="RoundedLinearLayout">
+        <item name="android:background">@drawable/ll_rounded_white</item>
+    </style>
+    <!-- Material Dialog Theme -->
+    <style name="MaterialTheme.MtrlDialog" parent="@style/ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="android:background">@color/colorGhostWhite</item>
+        <item name="materialAlertDialogTitleTextStyle">@style/MtrlTitleTextStyle</item>
+        <item name="materialAlertDialogBodyTextStyle">@style/MtrlBodyTextStyle</item>
+        <item name="buttonBarPositiveButtonStyle">@style/MaterialTheme.MtrlPositiveBtn</item>
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialAlertDialog.Rounded</item>
+    </style>
+    <!-- Material Dialog Positive Button Theme -->
+    <style name="MaterialTheme.MtrlPositiveBtn" parent="@style/Widget.MaterialComponents.Button.TextButton.Dialog">
+        <item name="android:textColor">#FFFFFF</item>
+        <item name="backgroundTint">@color/colorPrimary</item>
+    </style>
+    <!-- Material Dialog Theme Rounded Corners -->
+    <style name="ShapeAppearanceOverlay.MaterialAlertDialog.Rounded" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">15dp</item>
+    </style>
+    <!-- Material Dialog Theme Custom Title -->
+    <style name="MtrlTitleTextStyle" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+    <!-- Material Dialog Theme Custom Body -->
+    <style name="MtrlBodyTextStyle" parent="MaterialAlertDialog.MaterialComponents.Body.Text">
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="material_toolbar_height">150dp</dimen>
+    <dimen name="material_button_width">350dp</dimen>
+    <dimen name="material_button_height">50dp</dimen>
+    <dimen name="material_bottom_nav_height">50dp</dimen>
+    <dimen name="margin_adjustment">08dp</dimen>
+</resources>

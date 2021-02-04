@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="mViewModel"
+            type="weather.pusher.controllers.ViewModelAccount"/>
+        <variable
+            name="mPresenter"
+            type="weather.pusher.views.presenters.PresenterAccount"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@mipmap/weatherpusher_prple_gray_ps">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:background="@color/colorSecondary">
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                style="@style/MaterialTheme.TextView"/>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/btm_nav_view_account"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/material_bottom_nav_height"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:menu="@menu/bottom_navigation_menu"
+            app:labelVisibilityMode="labeled"
+            style="@style/MaterialTheme.MtrlBtmNav">
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+        <RelativeLayout
+            android:id="@+id/account_layout_account_authenticate"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="@id/gd_wp_dx_20_hor"
+            app:layout_constraintStart_toStartOf="@id/gd_wp_dx_10_ver"
+            app:layout_constraintEnd_toEndOf="@id/gd_wp_dx_90_ver"
+            style="@style/RoundedLinearLayout">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/material_tv_account_authenticate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="start|center"
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                android:text="@string/mtv_account_authenticate"
+                android:textColor="@color/colorPrimary"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/material_sm_account_authenticate"
+                android:layout_toEndOf="@id/material_tv_account_authenticate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:gravity="start|center"
+                android:enabled="true"
+                android:onClick="@{() -> mPresenter.fireOnToggleAccountAuthenticate()}"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/account_layout_city_selection"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="@id/gd_wp_dx_30_hor"
+            app:layout_constraintStart_toStartOf="@id/gd_wp_dx_10_ver"
+            app:layout_constraintEnd_toEndOf="@id/gd_wp_dx_90_ver"
+            style="@style/RoundedLinearLayout">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/material_tv_select_city"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="start|center"
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                android:text="@string/mtv_select_city"
+                android:textColor="@color/colorPrimary"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/material_sm_select_city"
+                android:layout_toEndOf="@id/material_tv_select_city"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:gravity="start|center"
+                android:enabled="false"
+                android:onClick="@{() -> mPresenter.fireOnToggleSelectCity()}"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/account_layout_data_puller"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="@id/gd_wp_dx_40_hor"
+            app:layout_constraintStart_toStartOf="@id/gd_wp_dx_10_ver"
+            app:layout_constraintEnd_toEndOf="@id/gd_wp_dx_90_ver"
+            style="@style/RoundedLinearLayout">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/material_tv_pull_data"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="start|center"
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                android:text="@string/mtv_pull_data_city"
+                android:textColor="@color/colorPrimary"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/material_sm_pull_data"
+                android:layout_toEndOf="@id/material_tv_pull_data"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:gravity="start|center"
+                android:enabled="false"
+                android:onClick="@{() -> mPresenter.fireOnToggleDataPull()}"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/account_layout_min_temp"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="@id/gd_wp_dx_50_hor"
+            app:layout_constraintStart_toStartOf="@id/gd_wp_dx_10_ver"
+            app:layout_constraintEnd_toEndOf="@id/gd_wp_dx_90_ver"
+            style="@style/RoundedLinearLayout">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/material_tv_min_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                android:gravity="start|center"
+                android:text="@string/mtv_min_temp"
+                android:textColor="@color/colorPrimary"/>
+            <com.google.android.material.slider.Slider
+                android:id="@+id/material_slider_min_temperature"
+                android:layout_toEndOf="@id/material_tv_min_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:value="1"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:stepSize="1"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/account_layout_max_temp"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="@id/gd_wp_dx_60_hor"
+            app:layout_constraintStart_toStartOf="@id/gd_wp_dx_10_ver"
+            app:layout_constraintEnd_toEndOf="@id/gd_wp_dx_90_ver"
+            style="@style/RoundedLinearLayout">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/material_tv_max_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                android:gravity="start|center"
+                android:text="@string/mtv_max_temp"
+                android:textColor="@color/colorPrimary"/>
+            <com.google.android.material.slider.Slider
+                android:id="@+id/material_slider_max_temperature"
+                android:layout_toEndOf="@id/material_tv_max_temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:value="1"
+                android:valueFrom="0"
+                android:valueTo="1"
+                android:stepSize="1"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/account_layout_confirm_update"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="@id/gd_wp_dx_70_hor"
+            app:layout_constraintStart_toStartOf="@id/gd_wp_dx_10_ver"
+            app:layout_constraintEnd_toEndOf="@id/gd_wp_dx_90_ver"
+            style="@style/RoundedLinearLayout">
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/material_tv_confirm_update"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="start|center"
+                android:paddingStart="10dp"
+                android:paddingEnd="0dp"
+                android:text="@string/mtv_confirm_update"
+                android:textColor="@color/colorPrimary"/>
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/material_sm_confirm_update"
+                android:layout_toEndOf="@+id/material_tv_confirm_update"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:gravity="start|center"
+                android:enabled="false"
+                android:onClick="@{() -> mPresenter.fireOnToggleConfirmUpdates()}"/>
+        </RelativeLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_10_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.10" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_20_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.20" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_30_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.30" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_40_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.40" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_50_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_60_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.60" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_70_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.70" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_80_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.80" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_90_ver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.90" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_10_hor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.10" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_20_hor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.20" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_30_hor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.30" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_40_hor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.40" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_50_hor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.50" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_60_hor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.60" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_70_hor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.70" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_80_hor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.80" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gd_wp_dx_90_hor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.90" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
